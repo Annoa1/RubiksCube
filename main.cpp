@@ -19,7 +19,7 @@ int rubixConsole(void);
 /* Point d'entree du programme : fonction main */
 int main(int argc, char *argv[])
 {
-    //rubixConsole();
+    rubixConsole();
 
     /* Initialisation de glut et creation
     de la fenetre */
