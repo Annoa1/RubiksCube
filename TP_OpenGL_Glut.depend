@@ -1,0 +1,98 @@
+# depslib dependency file v1.0
+1245071236 source:d:\travail\ifips_optronique\ci1a_apprentissage\projet_cooperatif\tp\tp_introduction_opengl\projet_codeblocks_fonctionnel\tp_opengl_glut\premier_prog.cpp
+	<stdlib.h>
+	<GL/glut.h>
+
+1066740114 d:\travail\ifips_optronique\ci1a_apprentissage\projet_cooperatif\tp\tp_introduction_opengl\projet_codeblocks_fonctionnel\tp_opengl_glut\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 d:\travail\ifips_optronique\ci1a_apprentissage\projet_cooperatif\tp\tp_introduction_opengl\projet_codeblocks_fonctionnel\tp_opengl_glut\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1402411315 source:d:\tp_opengl_glut\premier_prog.cpp
+	<stdlib.h>
+	<GL/glut.h>
+
+1066740114 d:\tp_opengl_glut\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 d:\tp_opengl_glut\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1402413973 source:e:\téléchargement\tp_opengl_glut\tp_opengl_glut\premier_prog.cpp
+	<stdlib.h>
+	<GL/glut.h>
+
+1066740114 e:\téléchargement\tp_opengl_glut\tp_opengl_glut\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 e:\téléchargement\tp_opengl_glut\tp_opengl_glut\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1403191885 source:c:\users\rémi\documents\cour polytech\projet\tp_opengl_glut\tp_opengl_glut\premier_prog.cpp
+	<stdlib.h>
+	<GL/glut.h>
+	<math.h>
+	"fonction.h"
+
+1066740114 c:\users\rémi\documents\cour polytech\projet\tp_opengl_glut\tp_opengl_glut\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 c:\users\rémi\documents\cour polytech\projet\tp_opengl_glut\tp_opengl_glut\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1403191999 c:\users\rémi\documents\cour polytech\projet\tp_opengl_glut\tp_opengl_glut\fonction.h
+
+1402670698 source:c:\users\rémi\documents\cour polytech\projet\tp_opengl_glut\tp_opengl_glut\fonction.cpp
+	"fonction.h"
+
+1433952526 source:d:\c\projet\version_0.1\version_0.1\projet fini\premier_prog.cpp
+
+1066743714 d:\c\projet\version_0.1\version_0.1\projet fini\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 d:\c\projet\version_0.1\version_0.1\projet fini\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1403195599 d:\c\projet\version_0.1\version_0.1\projet fini\fonction.h
+
+1433951652 source:d:\c\projet\version_0.1\version_0.1\projet fini\main.cpp
+	<stdlib.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<Cube.h>
+	<CubeView.h>
+
+1433951083 d:\c\projet\version_0.1\version_0.1\projet fini\include\cube.h
+	<iostream>
+
+1433947578 d:\c\projet\version_0.1\version_0.1\projet fini\include\cubeview.h
+	<Cube.h>
+
+1433951101 source:d:\c\projet\version_0.1\version_0.1\projet fini\src\cube.cpp
+	"Cube.h"
+
+1433945863 source:d:\c\projet\version_0.1\version_0.1\projet fini\src\gui.cpp
+	"GUI.h"
+
+1433946686 d:\c\projet\version_0.1\version_0.1\projet fini\include\gui.h
+
+1433951110 source:d:\c\projet\version_0.1\version_0.1\projet fini\src\cubeview.cpp
+	"CubeView.h"
+
