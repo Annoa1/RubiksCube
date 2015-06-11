@@ -2,6 +2,7 @@
 #define CUBEVIEW_H
 
 #include <Cube.h>
+#include <GL/glut.h>
 
 enum Color {RED, BLUE, GREEN, YELLOW, ORANGE, WHITE};
 
@@ -19,12 +20,11 @@ class CubeView
     //////////////////////////
 
     // rotations du cube (en entier)
-    void rotateUp(void);
-    void rotateDown(void);
-    void rotateLeft(void);
-    void rotateRight(void);
+    void rotateX(bool sensHoraire = true);
+    void rotateY(bool sensHoraire = true);
+    void rotateZ(bool sensHoraire = true);
 
-    // quelques animations (à completer selon les demandes GUI)
+    // quelques animations (à completer selon les demandes de cube)
     void mooveRightUp(void);
     void mooveRightDown(void);
     void mooveLeftUp(void);

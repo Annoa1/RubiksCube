@@ -98,3 +98,40 @@
 
 1433949081 source:c:\users\rémi\documents\github\rubikscube\premier_prog.cpp
 
+1434035764 source:d:\c\rubikscube\main.cpp
+	<stdlib.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<Cube.h>
+	<CubeView.h>
+
+1066743714 d:\c\rubikscube\include\gl\glut.h
+	"freeglut_std.h"
+
+1260916660 d:\c\rubikscube\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1433951083 d:\c\rubikscube\include\cube.h
+	<iostream>
+
+1434036789 d:\c\rubikscube\include\cubeview.h
+	<Cube.h>
+	<GL/glut.h>
+
+1433952526 source:d:\c\rubikscube\premier_prog.cpp
+
+1433951101 source:d:\c\rubikscube\src\cube.cpp
+	"Cube.h"
+
+1433951110 source:d:\c\rubikscube\src\cubeview.cpp
+	"CubeView.h"
+
+1433945863 source:d:\c\rubikscube\src\gui.cpp
+	"GUI.h"
+
+1433946686 d:\c\rubikscube\include\gui.h
+

@@ -15,11 +15,15 @@ void redimensionne(int largeur, int hauteur);
 void display(void);
 int rubixConsole(void);
 
+Cube unCube;
+CubeView cubeView(&unCube);
 
 /* Point d'entree du programme : fonction main */
 int main(int argc, char *argv[])
 {
-    rubixConsole();
+    //rubixConsole();
+
+
 
     /* Initialisation de glut et creation
     de la fenetre */
@@ -117,7 +121,7 @@ void display(void) {
 
     /* Objets 3D de la scene */
 
-
+    cubeView.update();
 
      /* On restitue la matrice de tranformation des objets
      presente en memoire a l'aide de la fonction glPopMatrix
