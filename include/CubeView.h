@@ -4,9 +4,22 @@
 #include <Cube.h>
 #include <GL/glut.h>
 
+/**
+ * \file main.c
+ * \brief Programme de tests.
+ * \author Franck.H
+ * \version 0.1
+ * \date 11 septembre 2007
+ *
+ * Programme de test pour l'objet de gestion des chaînes de caractères Str_t.
+ *
+ */
+
 # define PI           3.14159265358979323846
 
 enum Color {WHITE, GREEN, RED, BLUE, YELLOW, ORANGE};
+
+
 
 class CubeView
 {
