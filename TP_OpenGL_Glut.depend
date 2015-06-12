@@ -98,7 +98,7 @@
 
 1433949081 source:c:\users\rémi\documents\github\rubikscube\premier_prog.cpp
 
-1434035764 source:d:\c\rubikscube\main.cpp
+1434036879 source:d:\c\rubikscube\main.cpp
 	<stdlib.h>
 	<GL/glut.h>
 	<iostream>
@@ -118,7 +118,7 @@
 1433951083 d:\c\rubikscube\include\cube.h
 	<iostream>
 
-1434036789 d:\c\rubikscube\include\cubeview.h
+1434113699 d:\c\rubikscube\include\cubeview.h
 	<Cube.h>
 	<GL/glut.h>
 
