@@ -34,14 +34,15 @@ class CubeView
     //////////////////////////
 
     // rotations du cube (en entier)
-    void rotatation(Axe axe, bool sensHoraire);
+    void rotation(Axe axe, bool sensHoraire = true);
 
     //
     static void setGlutColor(Color c);
 
   private:
-    Color currentFace; // la face principale en affichage (face à nous)
-    Color currentUpFace; // pour déduire le sens du cube
+    Color currentFace;
+    int currentYAngle;
+    int currentZAngle;
     Cube* cube;
     void draw(void);
     bool isMooving = false;

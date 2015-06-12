@@ -4,7 +4,8 @@ CubeView::CubeView(Cube* c)
 {
   cube = c;
   currentFace = WHITE;
-  currentUpFace = ORANGE;
+  int currentYAngle = 0;
+  int currentZAngle = 0;
 }
 
 CubeView::~CubeView()
@@ -23,35 +24,41 @@ void CubeView::setDrawRepere(Color f) {
   // currentUpFace == ORANGE
 
   // on se place face au cube
-  switch (currentFace) {
-    case WHITE:     glRotated(0, 0, 0, 0);break;
-    case ORANGE:    glRotated(-90, 1, 0, 0);break;
-    case BLUE:      glRotated(90, 0, 1, 0); break;
-    case RED:       glRotated(-3*90, 1, 0, 0);break;
-    case GREEN:     glRotated(3*90, 0, 1, 0);break;
-    case YELLOW:    glRotated(-2*90, 0, 1, 0);
-  }
-
-  // on rotationne le cube
-  switch (currentUpFace) {
-  }
+//  switch (currentFace) {
+//    case WHITE:     glRotated(0, 0, 0, 0);break;
+//    case ORANGE:    glRotated(-90, 1, 0, 0);break;
+//    case BLUE:      glRotated(90, 0, 1, 0); break;
+//    case RED:       glRotated(-3*90, 1, 0, 0);break;
+//    case GREEN:     glRotated(3*90, 0, 1, 0);break;
+//    case YELLOW:    glRotated(-2*90, 0, 1, 0);
+//  }
+//
+//  // on rotationne le cube
+//  switch (currentUpFace) {
+//  }
 }
 
 void CubeView::setFaceRepere(Color f) {
 
 
   switch (f) {
-    case WHITE:     glRotated(0, 0, 0, 0);
-                    glRotated(-90, 0, 0, 1); break;
-    case ORANGE:    glRotated(-90, 1, 0, 0);
-                    glRotated(-90, 0, 0, 1); break;
-    case BLUE:      glRotated(90, 0, 1, 0); break;
-    case RED:       glRotated(-3*90, 1, 0, 0);
-                    glRotated(-90, 0, 0, 1); break;
-    case GREEN:     glRotated(3*90, 0, 1, 0);
-                    glRotated(2*90, 0, 0, 1); break;
-    case YELLOW:    glRotated(-2*90, 0, 1, 0);
-                    glRotated(90, 0, 0, 1);
+    case WHITE:
+      glRotated(0, 0, 0, 0);
+      glRotated(-90, 0, 0, 1); break;
+    case ORANGE:
+      glRotated(-90, 1, 0, 0);
+      glRotated(-90, 0, 0, 1); break;
+    case BLUE:
+      glRotated(90, 0, 1, 0); break;
+    case RED:
+      glRotated(-3*90, 1, 0, 0);
+      glRotated(-90, 0, 0, 1); break;
+    case GREEN:
+      glRotated(3*90, 0, 1, 0);
+      glRotated(2*90, 0, 0, 1); break;
+    case YELLOW:
+      glRotated(-2*90, 0, 1, 0);
+      glRotated(90, 0, 0, 1);
   }
 }
 
@@ -66,11 +73,15 @@ void CubeView::setGlutColor(Color c) {
   }
 }
 
-void CubeView::rotatation(Axe axe, bool sensHoraire = true) {
+void CubeView::rotation(Axe axe, bool sensHoraire) {
+  int angle = (sensHoraire)? 90:-90;
   switch (axe) {
-    case X: break;
-    case Y: break;
-    case Z: ;
+    case Y:
+      currentYAngle += angle;
+      glRotated(currentYAngle, 0, 1, 0); break;
+    case Z:
+      currentZAngle += angle;
+      glRotated(currentZAngle, 0, 0, 1); break;
   }
 }
 
