@@ -20,6 +20,7 @@ void clavier(unsigned char touche, int x, int y);
 Cube unCube;
 CubeView cubeView(&unCube);
 
+
 /* A MODIFIER PLUS TARD */
 /*------------------------------------------------------------------*/
 /* Constantes */
@@ -102,7 +103,8 @@ int main(int argc, char *argv[])
 {
     //rubixConsole();
 
-
+    // test
+    unCube.rotation(5,1);
 
     /* Initialisation de glut et creation
     de la fenetre */
