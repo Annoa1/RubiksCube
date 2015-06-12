@@ -180,8 +180,10 @@ int rubixConsole(void)
 
 
 void display(void) {
-  /* Variables locales ET statiques pour memorisation entre affichages successifs */
-    static GLdouble pos_cam_x = 0, pos_cam_y = 0, pos_cam_z = 7, alpha_cam = 0, thetha_cam = 0, dist_cam = 10;
+    /* Variables locales ET statiques pour memorisation entre affichages successifs */
+    static GLdouble pos_cam_x = 20, pos_cam_y = 0, pos_cam_z = 0, alpha_cam = 0, thetha_cam = 0, dist_cam = 20;
+    char strMsg1[100];
+
 
     /* Mise a jour des donnees avec les evenements clavier */
     while(mesTouches.touchePressee())
@@ -204,20 +206,20 @@ void display(void) {
                         break;
 
         case DROITE:    alpha_cam +=2;
-                        if(alpha_cam >360)alpha_cam=2;
+                        if(alpha_cam >358)alpha_cam=0;
                         break;
 
         case BAS:    thetha_cam -=2;
-                        if(thetha_cam < 0)thetha_cam=358;
+                        if(thetha_cam < 0)thetha_cam=360;
                         break;
 
         case HAUT:    thetha_cam +=2;
-                        if(thetha_cam >360)thetha_cam=2;
+                        if(thetha_cam >358)thetha_cam=0;
                         break;
         }
-        pos_cam_x = dist_cam * cos(alpha_cam*3.14/180) * sin(thetha_cam*3.14/180);
-        pos_cam_z = dist_cam * sin(alpha_cam*3.14/180) * sin(thetha_cam*3.14/180);
-        pos_cam_y = dist_cam *                           cos(thetha_cam*3.14/180);
+        pos_cam_x = dist_cam * cos(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
+        pos_cam_z = dist_cam * sin(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
+        pos_cam_y = dist_cam *                           sin(thetha_cam*3.14/180);
     }
 
     /* Effacement de l'image avec la couleur de fond */

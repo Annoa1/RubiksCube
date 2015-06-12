@@ -98,31 +98,26 @@
 
 1433949081 source:c:\users\rémi\documents\github\rubikscube\premier_prog.cpp
 
-<<<<<<< HEAD
-1434116900 D
+1433951101 D
 
-1434118803 source:d:\c\rubikscube\main.cpp
-=======
-<<<<<<< HEAD
-1434035585 source:c:\users\etienne\desktop\rubikscube\main.cpp
-=======
 1434036879 source:d:\c\rubikscube\main.cpp
->>>>>>> origin/master
->>>>>>> origin/master
+
+1434035585 source:c:\users\etienne\desktop\rubikscube\main.cpp
+
+1433951110 gin/master
 	<stdlib.h>
 	<GL/glut.h>
 	<iostream>
 	<math.h>
 	<Cube.h>
 	<CubeView.h>
-
-1434035585 source:c:\users\etienne\desktop\rubikscube\main.cpp
-
-1433949081 gin/master
 	<windows.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<stdlib.h>
+	<Cube.h>
+	<GL/glut.h>
+	"CubeView.h"
 
 1433951083 e65114a6acf48afdf209feebfb49cb6e431d9
 	<stdlib.h>
@@ -143,13 +138,12 @@
 
 1260916660 d:\c\rubikscube\include\gl\freeglut_std.h
 
-<<<<<<< HEAD
-1434116900 d:\c\rubikscube\include\cube.h
+1433951083 d:\c\rubikscube\include\cube.h
+	<iostream>
 	<iostream>
 
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
+1434116900 
+
 1434035585 c:\users\etienne\desktop\rubikscube\include\cube.h
 	<iostream>
 
@@ -168,30 +162,15 @@
 	"GUI.h"
 
 1434035585 c:\users\etienne\desktop\rubikscube\include\gui.h
-<<<<<<< HEAD
-
-1434120486 d:\c\rubikscube\include\cubeview.h
-=======
-=======
-1433951083 d:\c\rubikscube\include\cube.h
-	<iostream>
 
 1434115836 d:\c\rubikscube\include\cubeview.h
->>>>>>> origin/master
-	<Cube.h>
-	<GL/glut.h>
 
 1433952526 source:d:\c\rubikscube\premier_prog.cpp
 
 1433951101 source:d:\c\rubikscube\src\cube.cpp
 	"Cube.h"
 
-<<<<<<< HEAD
-1434120102 source:d:\c\rubikscube\src\cubeview.cpp
-=======
 1433951110 source:d:\c\rubikscube\src\cubeview.cpp
->>>>>>> origin/master
-	"CubeView.h"
 
 1433945863 source:d:\c\rubikscube\src\gui.cpp
 	"GUI.h"
@@ -201,13 +180,13 @@
 1433949082 source:c:\users\rémi\documents\github\rubikscube\src\cube.cpp
 	"Cube.h"
 
-1433949081 c:\users\rémi\documents\github\rubikscube\include\cube.h
+1434117683 c:\users\rémi\documents\github\rubikscube\include\cube.h
 	<iostream>
 
-1434110269 source:c:\users\rémi\documents\github\rubikscube\src\cubeview.cpp
+1434117703 source:c:\users\rémi\documents\github\rubikscube\src\cubeview.cpp
 	"CubeView.h"
 
-1434110269 c:\users\rémi\documents\github\rubikscube\include\cubeview.h
+1434117685 c:\users\rémi\documents\github\rubikscube\include\cubeview.h
 	<Cube.h>
 	<GL/glut.h>
 
@@ -224,4 +203,12 @@
 	"GUI.h"
 
 1433949081 c:\users\rémi\documents\github\rubikscube\include\gui.h
+
+1434117687 source:c:\users\rémi\documents\github\rubikscube\main.cpp
+	<stdlib.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<Cube.h>
+	<CubeView.h>
 
