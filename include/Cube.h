@@ -14,10 +14,9 @@ class Cube
         void afficher();
         virtual ~Cube();
         void rotation(int face, int sens);
-        int face[NBFACES][NBCOL][NBCOL];
     protected:
     private:
-
+        int face[NBFACES][NBCOL][NBCOL];
 };
 
 #endif // CUBE_H
