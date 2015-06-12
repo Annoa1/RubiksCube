@@ -4,7 +4,9 @@
 #include <Cube.h>
 #include <GL/glut.h>
 
-enum Color {WHITE, RED, BLUE, GREEN, YELLOW, ORANGE};
+# define PI           3.14159265358979323846
+
+enum Color {WHITE, ORANGE, BLUE, RED, GREEN, YELLOW};
 
 class CubeView
 {
@@ -34,8 +36,8 @@ class CubeView
     static void setGlutColor(Color c);
 
   private:
-    int currentFace; // la face principale en affichage (face à nous)
-    int currentUpFace; // pour déduire le sens du cube
+    Color currentFace; // la face principale en affichage (face à nous)
+    Color currentUpFace; // pour déduire le sens du cube
     Cube* cube;
     void draw(void);
     bool isMooving = false;

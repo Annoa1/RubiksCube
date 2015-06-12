@@ -14,8 +14,22 @@ void CubeView::update(void) {
   draw();
 }
 
-void CubeView::setGlutRepere(Color f) {
+//enum Color {WHITE, ORANGE, BLUE, RED, GREEN, YELLOW};
 
+void CubeView::setGlutRepere(Color f) {
+    // cas de base :
+    // currentFace == WHITE
+    // currentUpFace == ORANGE
+
+  switch (f) {
+    case WHITE:     glRotated(0, 0, 0, 0); break;
+    case ORANGE:    glRotated(PI/2, 1, 0, 0); break;
+    case BLUE:      glRotated(PI/2, 0, 1, 0); break;
+    case RED:       glRotated(3*PI/2, 1, 0, 0); break;
+    case GREEN:     glRotated(3*PI/2, 0, 1, 0); break;
+    case YELLOW:
+    default:        glRotated(PI, 1, 0, 0);
+  }
 }
 
 void CubeView::setGlutColor(Color c) {
