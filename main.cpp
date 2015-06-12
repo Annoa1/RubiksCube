@@ -16,6 +16,7 @@ void display(void);
 int rubixConsole(void);
 
 void clavier(unsigned char touche, int x, int y);
+void drawString(char *S);
 
 Cube unCube;
 CubeView cubeView(&unCube);
@@ -239,6 +240,40 @@ void display(void) {
 
     /* Objets 3D de la scene */
 
+    glPushMatrix();
+    glBegin(GL_LINE_STRIP);
+    //axe Y
+    glColor3f(0,1,0);
+    glVertex3f(0,0,5);
+    glVertex3f(0,1,5);
+    //axe X
+    glColor3f(1,0,0);
+    glVertex3f(0,0,5);
+    glVertex3f(1,0,5);
+    //axe Z
+    glColor3f(0,0,1);
+    glVertex3f(0,0,5);
+    glVertex3f(0,0,6);
+    glEnd();
+    glPopMatrix();
+
+    glPushMatrix();
+    glColor3d(0,1,0);
+    glRasterPos3f(0,1,5);
+    drawString("Y");
+    glPopMatrix();
+    glPushMatrix();
+    glColor3d(1,0,0);
+    glRasterPos3f(1,0,5);
+    drawString("X");
+    glPopMatrix();
+    glPushMatrix();
+    glColor3d(0,0,1);
+    glRasterPos3f(0,0,6);
+    drawString("Z");
+    glPopMatrix();
+
+
     cubeView.update();
 
 
@@ -301,4 +336,12 @@ void clavier(unsigned char touche, int x, int y)
     }
     // Force le reaffichage et calcul de la scene apres reception d'un evenement
     glutPostRedisplay();
+}
+
+void drawString(char *S)
+{
+    for(unsigned int i =0;i<strlen(S);i++)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_10,S[i]);
+    }
 }
