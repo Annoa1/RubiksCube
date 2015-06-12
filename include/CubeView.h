@@ -15,9 +15,8 @@
  *
  */
 
-# define PI           3.14159265358979323846
-
 enum Color {WHITE, GREEN, RED, BLUE, YELLOW, ORANGE};
+enum Axe {X, Y, Z};
 
 
 
@@ -35,15 +34,7 @@ class CubeView
     //////////////////////////
 
     // rotations du cube (en entier)
-    void rotateX(bool sensHoraire = true);
-    void rotateY(bool sensHoraire = true);
-    void rotateZ(bool sensHoraire = true);
-
-    // quelques animations (à completer selon les demandes de cube)
-    void mooveRightUp(void);
-    void mooveRightDown(void);
-    void mooveLeftUp(void);
-    void mooveLeftDown(void);
+    void rotatation(Axe axe, bool sensHoraire);
 
     //
     static void setGlutColor(Color c);
@@ -56,7 +47,8 @@ class CubeView
     bool isMooving = false;
     int angle;
     static int speed;
-    void setGlutRepere(Color f);
+    void setFaceRepere(Color f);
+    void setDrawRepere(Color f);
 };
 
 #endif // CUBEVIEW_H

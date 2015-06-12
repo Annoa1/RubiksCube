@@ -3,6 +3,8 @@
 CubeView::CubeView(Cube* c)
 {
   cube = c;
+  currentFace = WHITE;
+  currentUpFace = ORANGE;
 }
 
 CubeView::~CubeView()
@@ -14,10 +16,29 @@ void CubeView::update(void) {
   draw();
 }
 
-void CubeView::setGlutRepere(Color f) {
-    // cas de base :
-    // currentFace == WHITE
-    // currentUpFace == ORANGE
+// modifie le repère en fonction de la face courrante
+void CubeView::setDrawRepere(Color f) {
+  // cas de base :
+  // currentFace == WHITE
+  // currentUpFace == ORANGE
+
+  // on se place face au cube
+  switch (currentFace) {
+    case WHITE:     glRotated(0, 0, 0, 0);break;
+    case ORANGE:    glRotated(-90, 1, 0, 0);break;
+    case BLUE:      glRotated(90, 0, 1, 0); break;
+    case RED:       glRotated(-3*90, 1, 0, 0);break;
+    case GREEN:     glRotated(3*90, 0, 1, 0);break;
+    case YELLOW:    glRotated(-2*90, 0, 1, 0);
+  }
+
+  // on rotationne le cube
+  switch (currentUpFace) {
+  }
+}
+
+void CubeView::setFaceRepere(Color f) {
+
 
   switch (f) {
     case WHITE:     glRotated(0, 0, 0, 0);
@@ -29,8 +50,7 @@ void CubeView::setGlutRepere(Color f) {
                     glRotated(-90, 0, 0, 1); break;
     case GREEN:     glRotated(3*90, 0, 1, 0);
                     glRotated(2*90, 0, 0, 1); break;
-    case YELLOW:
-    default:        glRotated(-2*90, 0, 1, 0);
+    case YELLOW:    glRotated(-2*90, 0, 1, 0);
                     glRotated(90, 0, 0, 1);
   }
 }
@@ -42,8 +62,15 @@ void CubeView::setGlutColor(Color c) {
     case BLUE:    glColor3d(0,0,1); break;
     case GREEN:   glColor3d(0,1,0); break;
     case YELLOW:  glColor3f(1,1,0); break;
-    case ORANGE:
-    default:      glColor3f(1,0.5,0);
+    case ORANGE:  glColor3f(1,0.5,0);
+  }
+}
+
+void CubeView::rotatation(Axe axe, bool sensHoraire = true) {
+  switch (axe) {
+    case X: break;
+    case Y: break;
+    case Z: ;
   }
 }
 
@@ -58,7 +85,7 @@ void CubeView::draw(void) {
 
   for (int f=0; f<NBFACES; f++) {
     glPushMatrix();
-    setGlutRepere((Color) f);
+    setFaceRepere((Color) f);
     // fond noir
     glBegin(GL_QUADS) ;
     glColor3f(0,0,0);
