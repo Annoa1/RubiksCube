@@ -17,7 +17,7 @@
 
 # define PI           3.14159265358979323846
 
-enum Color {WHITE, ORANGE, BLUE, RED, GREEN, YELLOW};
+enum Color {WHITE, GREEN, RED, BLUE, YELLOW, ORANGE};
 
 
 
