@@ -135,3 +135,30 @@
 
 1433946686 d:\c\rubikscube\include\gui.h
 
+1433949082 source:c:\users\rémi\documents\github\rubikscube\src\cube.cpp
+	"Cube.h"
+
+1433949081 c:\users\rémi\documents\github\rubikscube\include\cube.h
+	<iostream>
+
+1434110269 source:c:\users\rémi\documents\github\rubikscube\src\cubeview.cpp
+	"CubeView.h"
+
+1434110269 c:\users\rémi\documents\github\rubikscube\include\cubeview.h
+	<Cube.h>
+	<GL/glut.h>
+
+1433949081 c:\users\rémi\documents\github\rubikscube\include\gl\glut.h
+	"freeglut_std.h"
+
+1433949081 c:\users\rémi\documents\github\rubikscube\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1434109747 source:c:\users\rémi\documents\github\rubikscube\src\gui.cpp
+	"GUI.h"
+
+1433949081 c:\users\rémi\documents\github\rubikscube\include\gui.h
+
