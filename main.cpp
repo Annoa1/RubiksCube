@@ -15,8 +15,87 @@ void redimensionne(int largeur, int hauteur);
 void display(void);
 int rubixConsole(void);
 
+void clavier(unsigned char touche, int x, int y);
+
 Cube unCube;
 CubeView cubeView(&unCube);
+
+/* A MODIFIER PLUS TARD */
+/*------------------------------------------------------------------*/
+/* Constantes */
+const unsigned int NB_MAX_TOUCHE_MEMO = 10;
+enum {AUCUNE, HAUT, BAS, GAUCHE, DROITE, ECHAP, ESPACE, ZOOM, DEZOOM};
+
+
+/* Classes */
+class EchangeurClavier
+{
+public:
+    EchangeurClavier();
+    bool touchePressee();
+    void ajouteTouchePressee(int touche);
+    int recupereTouchePressee();
+
+private:
+    unsigned int nb_touches_memorisees;
+    int liste_touche_memo[NB_MAX_TOUCHE_MEMO];
+};
+
+EchangeurClavier::EchangeurClavier()
+{
+    // Constructeur
+    unsigned int i;
+    nb_touches_memorisees = 0;
+
+    for (i=0; i<NB_MAX_TOUCHE_MEMO; i++)
+    {
+        liste_touche_memo[i] = AUCUNE;
+    }
+}
+
+bool EchangeurClavier::touchePressee()
+{
+    if (nb_touches_memorisees>0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void EchangeurClavier::ajouteTouchePressee(int touche)
+{
+    if (nb_touches_memorisees < (NB_MAX_TOUCHE_MEMO - 1) )
+    {
+        liste_touche_memo[nb_touches_memorisees] = touche;
+        nb_touches_memorisees = nb_touches_memorisees + 1;
+    }
+}
+
+int EchangeurClavier::recupereTouchePressee()
+{
+    int ret = AUCUNE;
+
+    if(nb_touches_memorisees > 0)
+    {
+        nb_touches_memorisees = nb_touches_memorisees - 1;
+        ret = liste_touche_memo[nb_touches_memorisees];
+    }
+
+    return ret;
+}
+
+/*
+   Variables globales : uniquement pour la gestion des
+   evenements. Tout le reste doit etre local a la fonction
+   affichage
+*/
+EchangeurClavier mesTouches;
+
+/*--------------------------------------------------------------------------------*/
+
 
 /* Point d'entree du programme : fonction main */
 int main(int argc, char *argv[])
@@ -32,7 +111,7 @@ int main(int argc, char *argv[])
     glutInitWindowPosition(100,100);
 
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
-    glutCreateWindow("TP : Introduction a OpenGL");
+    glutCreateWindow("Projet Rubik's Cube");
     glEnable(GL_DEPTH_TEST);
 
     /* Initialisation OpenGL : machine à etats... */
@@ -41,6 +120,7 @@ int main(int argc, char *argv[])
     /* Enregistrement des fonctions de rappel ("CallBacks" evenementielles) */
     glutReshapeFunc(redimensionne);
     glutDisplayFunc(display);
+    glutKeyboardFunc(clavier);
 
     /* Entree dans la boucle principale glut */
     glutMainLoop();
@@ -101,7 +181,44 @@ int rubixConsole(void)
 
 void display(void) {
   /* Variables locales ET statiques pour memorisation entre affichages successifs */
-    static GLdouble pos_cam_x = 0, pos_cam_y = 0;
+    static GLdouble pos_cam_x = 0, pos_cam_y = 0, pos_cam_z = 7, alpha_cam = 0, thetha_cam = 0, dist_cam = 10;
+
+    /* Mise a jour des donnees avec les evenements clavier */
+    while(mesTouches.touchePressee())
+    {
+        switch(mesTouches.recupereTouchePressee())
+        {
+        case ECHAP:     exit(EXIT_SUCCESS);
+                        break;
+
+        case ZOOM:       dist_cam++;
+                        if(dist_cam >100)dist_cam=100;
+                        break;
+
+        case DEZOOM:      dist_cam--;
+                        if(dist_cam <1)dist_cam=1;
+                        break;
+
+        case GAUCHE:    alpha_cam -=2;
+                        if(alpha_cam < 0)alpha_cam=358;
+                        break;
+
+        case DROITE:    alpha_cam +=2;
+                        if(alpha_cam >360)alpha_cam=2;
+                        break;
+
+        case BAS:    thetha_cam -=2;
+                        if(thetha_cam < 0)thetha_cam=358;
+                        break;
+
+        case HAUT:    thetha_cam +=2;
+                        if(thetha_cam >360)thetha_cam=2;
+                        break;
+        }
+        pos_cam_x = dist_cam * cos(alpha_cam*3.14/180) * sin(thetha_cam*3.14/180);
+        pos_cam_z = dist_cam * sin(alpha_cam*3.14/180) * sin(thetha_cam*3.14/180);
+        pos_cam_y = dist_cam *                           cos(thetha_cam*3.14/180);
+    }
 
     /* Effacement de l'image avec la couleur de fond */
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -112,21 +229,16 @@ void display(void) {
 
 
     /* Placement de la camera */
-    gluLookAt(pos_cam_x, pos_cam_y, -20, 0,0,0, 0,1,0);
+    gluLookAt(pos_cam_x, pos_cam_y, pos_cam_z, 0,0,0, 0,1,0);
     /* On empile (ie. memorise) la matrice de transformation des objets
     courante afin de la reutiliser pour chacun des objets de la
     scene. Ainsi, tous les objets seront dessines avec un unique point
     de vue, celui choisi a l'aide de la commande gluLookAt */
-    glPushMatrix();
 
     /* Objets 3D de la scene */
 
     cubeView.update();
 
-     /* On restitue la matrice de tranformation des objets
-     presente en memoire a l'aide de la fonction glPopMatrix
-     pour le trace des formes suivantes. */
-     glPopMatrix(); // Restitution environnement
 
 
     /* Il n'y a plus aucun objet a dessiner, on libere la memoire
@@ -151,4 +263,40 @@ void redimensionne(int largeur, int hauteur)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(45.0, largeur/(GLdouble)hauteur , 1.0, 100.);
+}
+
+void clavier(unsigned char touche, int x, int y)
+{
+    switch (touche)
+    {
+    case 27:  /* Les touches 'q' et Esc permettent de quitter le programme */
+        mesTouches.ajouteTouchePressee(ECHAP);
+        break;
+    case 'z':
+    case 'Z':
+        mesTouches.ajouteTouchePressee(HAUT);
+        break;
+    case 's':
+    case 'S':
+        mesTouches.ajouteTouchePressee(BAS);
+        break;
+    case 'q':
+    case 'Q':
+        mesTouches.ajouteTouchePressee(GAUCHE);
+        break;
+    case 'd':
+    case 'D':
+        mesTouches.ajouteTouchePressee(DROITE);
+        break;
+    case 'a':
+    case 'A':
+        mesTouches.ajouteTouchePressee(ZOOM);
+        break;
+    case 'e':
+    case 'E':
+        mesTouches.ajouteTouchePressee(DEZOOM);
+        break;
+    }
+    // Force le reaffichage et calcul de la scene apres reception d'un evenement
+    glutPostRedisplay();
 }
