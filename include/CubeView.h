@@ -53,6 +53,7 @@ class CubeView
     static int speed;
     void setFaceRepere(Color f);
     void setPerspective();
+    void oldRotation(Sens s);
 };
 
 #endif // CUBEVIEW_H
