@@ -18,7 +18,7 @@ void CubeView::update(void) {
   draw();
 }
 
-void CubeView::setDrawRepere() {
+void CubeView::setPerspective() {
   glRotated(currentXAngle, 1, 0, 0);
   glRotated(currentYAngle, 0, 1, 0);
   glRotated(currentZAngle, 0, 0, 1);
@@ -61,23 +61,51 @@ void CubeView::rotation(Axe axe, bool sensHoraire) {
   int angle = (sensHoraire)? -90:90;
   switch (axe) {
     case X:
+      cout << "rotation x de "<<angle<<endl;
       currentXAngle += angle;
       currentXAngle %= 360; break;
     case Y:
+      cout << "rotation y de "<<angle<<endl;
       currentYAngle += angle;
       currentYAngle %= 360; break;
     case Z:
+      cout << "rotation z de "<<angle<<endl;
       currentZAngle += angle;
       currentZAngle %= 360;
   }
 }
 
 void CubeView::mooveCube(Sens s) {
+  cout<<"currentXAngle"<<currentXAngle<<endl;
   switch (s) {
-    case RIGHT: rotation(Y,true); break;
-    case LEFT:  rotation(Y, false); break;
-    case UP:    rotation(X,false); break;
-    case DOWN:  rotation(X,true); break;
+
+    case RIGHT:
+      cout << "RIGHT "<< endl;
+      if (currentXAngle == 0)
+        rotation(Y, true);
+      else if (currentXAngle == 90)
+        rotation(Z, true);
+      else if (currentXAngle == 180)
+        rotation(Z, true);
+      else
+        rotation(Z, true);
+      break;
+
+    case LEFT:
+      cout << "LEFT "<< endl;
+      if (currentXAngle%180 == 0)
+        rotation(Y, false);
+      else
+        rotation(Z, false);
+      break;
+
+    case UP:
+      cout << "UP "<< endl;
+      rotation(X,false); break;
+
+    case DOWN:
+      cout << "DOWN" << endl;
+      rotation(X,true); break;
   }
 }
 
@@ -92,7 +120,7 @@ void CubeView::draw(void) {
 
   for (int f=0; f<NBFACES; f++) {
     glPushMatrix();
-    setDrawRepere();
+    setPerspective();
     setFaceRepere((Color) f);
     // fond noir
     glBegin(GL_QUADS) ;

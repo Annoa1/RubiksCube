@@ -52,7 +52,7 @@ class CubeView
     int angle;
     static int speed;
     void setFaceRepere(Color f);
-    void setDrawRepere();
+    void setPerspective();
 };
 
 #endif // CUBEVIEW_H
