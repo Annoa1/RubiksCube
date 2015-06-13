@@ -2,3 +2,8 @@
 *.layout
 *.o
 *.depend
+*.exe
+obj/Debug/main.o
+*.o
+*.depend
+TP_OpenGL_Glut.layout

@@ -16,6 +16,7 @@ void display(void);
 int rubixConsole(void);
 
 void clavier(unsigned char touche, int x, int y);
+void numClavier(int key, int x, int y);
 void drawString(char *S);
 
 Cube unCube;
@@ -25,7 +26,7 @@ CubeView cubeView(&unCube);
 /*------------------------------------------------------------------*/
 /* Constantes */
 const unsigned int NB_MAX_TOUCHE_MEMO = 10;
-enum {AUCUNE, HAUT, BAS, GAUCHE, DROITE, ECHAP, ESPACE, ZOOM, DEZOOM};
+enum {AUCUNE, HAUT, BAS, GAUCHE, DROITE, ECHAP, ESPACE, ZOOM, DEZOOM, ARROW_UP, ARROW_DOWN, ARROW_RIGHT, ARROW_LEFT};
 
 
 /* Classes */
@@ -102,8 +103,11 @@ EchangeurClavier mesTouches;
 int main(int argc, char *argv[])
 {
     //rubixConsole();
-
-
+    //cubeView.rotation(X,true);
+    cubeView.rotation(X,true);
+    //cubeView.rotation(X,true);
+    //cubeView.rotation(X,true);
+    //cubeView.rotation(Z,true);
 
     /* Initialisation de glut et creation
     de la fenetre */
@@ -122,6 +126,7 @@ int main(int argc, char *argv[])
     glutReshapeFunc(redimensionne);
     glutDisplayFunc(display);
     glutKeyboardFunc(clavier);
+    glutSpecialFunc(numClavier);
 
     /* Entree dans la boucle principale glut */
     glutMainLoop();
@@ -182,7 +187,7 @@ int rubixConsole(void)
 
 void display(void) {
     /* Variables locales ET statiques pour memorisation entre affichages successifs */
-    static GLdouble pos_cam_x = 20, pos_cam_y = 0, pos_cam_z = 0, alpha_cam = 0, thetha_cam = 0, dist_cam = 20;
+    static GLdouble pos_cam_x = 0, pos_cam_y = 0, pos_cam_z = 20, alpha_cam = 0, thetha_cam = 0, dist_cam = 20;
     char strMsg1[100];
 
 
@@ -217,6 +222,14 @@ void display(void) {
         case HAUT:    thetha_cam +=2;
                         if(thetha_cam >358)thetha_cam=0;
                         break;
+        case ARROW_DOWN:
+            cubeView.mooveCube(DOWN); break;
+        case ARROW_UP:
+            cubeView.mooveCube(UP); break;
+        case ARROW_RIGHT:
+            cubeView.mooveCube(RIGHT); break;
+        case ARROW_LEFT:
+            cubeView.mooveCube(LEFT); break;
         }
         pos_cam_x = dist_cam * cos(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
         pos_cam_z = dist_cam * sin(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
@@ -304,6 +317,7 @@ void redimensionne(int largeur, int hauteur)
 
 void clavier(unsigned char touche, int x, int y)
 {
+
     switch (touche)
     {
     case 27:  /* Les touches 'q' et Esc permettent de quitter le programme */
@@ -336,6 +350,24 @@ void clavier(unsigned char touche, int x, int y)
     }
     // Force le reaffichage et calcul de la scene apres reception d'un evenement
     glutPostRedisplay();
+}
+
+void numClavier(int key, int x, int y) {
+  switch (key) {
+    case 100:
+      mesTouches.ajouteTouchePressee(ARROW_LEFT);
+      break;
+    case 101:
+      mesTouches.ajouteTouchePressee(ARROW_UP);
+      break;
+    case 102:
+      mesTouches.ajouteTouchePressee(ARROW_RIGHT);
+      break;
+    case 103:
+      mesTouches.ajouteTouchePressee(ARROW_DOWN);
+      break;
+  }
+  glutPostRedisplay();
 }
 
 void drawString(char *S)

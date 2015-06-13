@@ -17,6 +17,7 @@
 
 enum Color {WHITE, GREEN, RED, BLUE, YELLOW, ORANGE};
 enum Axe {X, Y, Z};
+enum Sens {UP, DOWN, RIGHT, LEFT};
 
 
 
@@ -34,6 +35,7 @@ class CubeView
     //////////////////////////
 
     // rotations du cube (en entier)
+    void mooveCube(Sens s);
     void rotation(Axe axe, bool sensHoraire = true);
 
     //
@@ -41,6 +43,7 @@ class CubeView
 
   private:
     Color currentFace;
+    int currentXAngle;
     int currentYAngle;
     int currentZAngle;
     Cube* cube;
@@ -49,7 +52,7 @@ class CubeView
     int angle;
     static int speed;
     void setFaceRepere(Color f);
-    void setDrawRepere(Color f);
+    void setDrawRepere();
 };
 
 #endif // CUBEVIEW_H

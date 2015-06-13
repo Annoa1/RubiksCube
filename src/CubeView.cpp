@@ -4,8 +4,9 @@ CubeView::CubeView(Cube* c)
 {
   cube = c;
   currentFace = WHITE;
-  int currentYAngle = 0;
-  int currentZAngle = 0;
+  currentXAngle = 0;
+  currentYAngle = 0;
+  currentZAngle = 0;
 }
 
 CubeView::~CubeView()
@@ -17,30 +18,13 @@ void CubeView::update(void) {
   draw();
 }
 
-// modifie le repère en fonction de la face courrante
-void CubeView::setDrawRepere(Color f) {
-  // cas de base :
-  // currentFace == WHITE
-  // currentUpFace == ORANGE
-
-  // on se place face au cube
-//  switch (currentFace) {
-//    case WHITE:     glRotated(0, 0, 0, 0);break;
-//    case ORANGE:    glRotated(-90, 1, 0, 0);break;
-//    case BLUE:      glRotated(90, 0, 1, 0); break;
-//    case RED:       glRotated(-3*90, 1, 0, 0);break;
-//    case GREEN:     glRotated(3*90, 0, 1, 0);break;
-//    case YELLOW:    glRotated(-2*90, 0, 1, 0);
-//  }
-//
-//  // on rotationne le cube
-//  switch (currentUpFace) {
-//  }
+void CubeView::setDrawRepere() {
+  glRotated(currentXAngle, 1, 0, 0);
+  glRotated(currentYAngle, 0, 1, 0);
+  glRotated(currentZAngle, 0, 0, 1);
 }
 
 void CubeView::setFaceRepere(Color f) {
-
-
   switch (f) {
     case WHITE:
       glRotated(0, 0, 0, 0);
@@ -74,14 +58,26 @@ void CubeView::setGlutColor(Color c) {
 }
 
 void CubeView::rotation(Axe axe, bool sensHoraire) {
-  int angle = (sensHoraire)? 90:-90;
+  int angle = (sensHoraire)? -90:90;
   switch (axe) {
+    case X:
+      currentXAngle += angle;
+      currentXAngle %= 360; break;
     case Y:
       currentYAngle += angle;
-      glRotated(currentYAngle, 0, 1, 0); break;
+      currentYAngle %= 360; break;
     case Z:
       currentZAngle += angle;
-      glRotated(currentZAngle, 0, 0, 1); break;
+      currentZAngle %= 360;
+  }
+}
+
+void CubeView::mooveCube(Sens s) {
+  switch (s) {
+    case RIGHT: rotation(Y,true); break;
+    case LEFT:  rotation(Y, false); break;
+    case UP:    rotation(X,false); break;
+    case DOWN:  rotation(X,true); break;
   }
 }
 
@@ -96,6 +92,7 @@ void CubeView::draw(void) {
 
   for (int f=0; f<NBFACES; f++) {
     glPushMatrix();
+    setDrawRepere();
     setFaceRepere((Color) f);
     // fond noir
     glBegin(GL_QUADS) ;
