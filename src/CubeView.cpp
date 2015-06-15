@@ -26,6 +26,7 @@ string color2String(Color c) {
     return s;
 }
 
+
 CubeView::CubeView(Cube* c) {
     cube = c;
     currentFace = WHITE;
@@ -44,13 +45,20 @@ CubeView::~CubeView() {
 }
 
 void CubeView::update(void) {
+
     draw();
 }
 
+// setCurrentPosition
 void CubeView::setPerspective() {
     glRotated(currentXAngle, 1, 0, 0);
     glRotated(currentYAngle, 0, 1, 0);
     glRotated(currentZAngle, 0, 0, 1);
+}
+
+bool CubeView::areAngles(int x, int y, int z) {
+    //if (abs())
+    return ((currentXAngle == x) && (currentYAngle == y) && (currentZAngle == z));
 }
 
 void CubeView::setFaceRepere(Color f) {
@@ -150,71 +158,30 @@ void CubeView::mooveCube(Sens sens) {
         break;
     }
 
-
-    if (axe==Y) {
-        if (currentXAngle<0) {
-            sensHoraire = !(sensHoraire);
+    if (axe == Y) {
+        int x = abs(currentXAngle);
+        if (x==90 || x==270) {
+            //axe = Z;
         }
-        if (currentXAngle%180 != 0) {
-            axe = Z;
+        else if (currentXAngle == 180) {
+            //sensHoraire = !(sensHoraire);
         }
-
-        if (currentXAngle==180) {
-            sensHoraire = !(sensHoraire);
-        }
-
     }
-
-    else if (axe==X) {
-        if (currentYAngle<0) {
-            sensHoraire = !(sensHoraire);
-        }
-        if (currentYAngle%180 != 0) {
-            axe = Z;
-        }
-        if (currentYAngle==270) {
-            sensHoraire = !(sensHoraire);
-        }
-
-    }
-
+cout<<"---------------------"<<endl;
     rotation(axe, sensHoraire);
-    majCurrentFace(sens);
+    //majCurrentFace(sens);
+
 
     cout<<"currentXAngle "<<currentXAngle<<endl;
     cout<<"currentYAngle "<<currentYAngle<<endl;
     cout<<"currentZAngle "<<currentZAngle<<endl;
     cout<<"currentFace "<<color2String(currentFace)<<endl;
-}
-
-void CubeView::majCurrentFace(Sens sens) {
-    Color tmp = currentFace;
-    switch (sens) {
-        case DOWN:
-            currentFace = neighbors[1];
-            neighbors[1] = neighbors[4];
-            neighbors[4] = neighbors[3];
-            neighbors[3] = tmp;
-            break;
-        case UP:
-            currentFace = neighbors[3];
-            neighbors[3] = neighbors[4];
-            neighbors[4] = neighbors[1];
-            neighbors[1] = tmp;
-            break;
-        case RIGHT:
-            currentFace = neighbors[0];
-            neighbors[0] = neighbors[4];
-            neighbors[4] = neighbors[2];
-            neighbors[2] = tmp;
-            break;
-        case LEFT:
-            currentFace = neighbors[2];
-            neighbors[2] = neighbors[4];
-            neighbors[4] = neighbors[0];
-            neighbors[0] = tmp;
-            break;
+    cout<<"test "<<test<<endl;
+    string s = "";
+    for (int i=0; i<5; i++) {
+        s += color2String(neighbors[i])+", ";
     }
+    cout<<"voisins "<<s<<endl;
 }
 
 /**
@@ -225,11 +192,15 @@ void CubeView::draw(void) {
     int cX, cY;
     float diff = 0.1;
     float cote = 3 - 0.05;
+    glPushMatrix();
+    setPerspective();
 
     for (int f=0; f<NBFACES; f++) {
+
         glPushMatrix();
-        setPerspective();
+
         setFaceRepere((Color) f);
+
         // fond noir
         glBegin(GL_QUADS) ;
         glColor3f(0,0,0);
@@ -261,4 +232,5 @@ void CubeView::draw(void) {
     }
 
     glPopMatrix();
+
 }

@@ -48,6 +48,7 @@ class CubeView
     bool isMooving = false;
 
     static int speed;
+    bool areAngles(int x, int y, int z);
 
     void setFaceRepere(Color f);
     void setPerspective();
