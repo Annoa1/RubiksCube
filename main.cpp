@@ -119,7 +119,7 @@ int rubixConsole(void) {
 void display(void) {
 
     /* Variables locales ET statiques pour memorisation entre affichages successifs */
-    static GLdouble pos_cam_x = 20, pos_cam_y = 0, pos_cam_z = 0, alpha_cam = 0, thetha_cam = 0, dist_cam = 20;
+    static GLdouble pos_cam_x = 0, pos_cam_y = 0, pos_cam_z = 20, alpha_cam = 90, thetha_cam = 0, dist_cam = 20;
     char strMsg1[100];
 
     /* Mise a jour des donnees avec les evenements clavier */
