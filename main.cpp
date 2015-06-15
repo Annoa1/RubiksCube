@@ -26,7 +26,6 @@ EchangeurClavier mesTouches;
 
 /*--------------------------------------------------------------------------------*/
 
-
 /* Point d'entree du programme : fonction main */
 int main(int argc, char *argv[]) {
     //rubixConsole();
@@ -39,6 +38,7 @@ int main(int argc, char *argv[]) {
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH);
     glutCreateWindow("Projet Rubik's Cube");
     glEnable(GL_DEPTH_TEST);
+
 
     /* Initialisation OpenGL : machine à etats... */
     glClearColor(0.0,0.0,0.0,0.0);
@@ -120,57 +120,55 @@ void display(void) {
 
     /* Variables locales ET statiques pour memorisation entre affichages successifs */
     static GLdouble pos_cam_x = 0, pos_cam_y = 0, pos_cam_z = 20, alpha_cam = 90, thetha_cam = 0, dist_cam = 20;
-    char strMsg1[100];
 
     /* Mise a jour des donnees avec les evenements clavier */
-    while(mesTouches.touchePressee()) {
+    while(mesTouches.touchePressee())
+    {
 
-        switch(mesTouches.recupereTouchePressee()) {
-        case ECHAP:
-            exit(EXIT_SUCCESS);
-            break;
+        switch(mesTouches.recupereTouchePressee())
+        {
+            case ECHAP          :   exit(EXIT_SUCCESS);
+                                    break;
 
-        case ZOOM:
-            dist_cam++;
-            if(dist_cam >100)dist_cam=100;
-            break;
+            case ZOOM           :   dist_cam++;
+                                    if(dist_cam >100)dist_cam=100;
+                                    break;
 
-        case DEZOOM:
-            dist_cam--;
-            if(dist_cam <1)dist_cam=1;
-            break;
+            case DEZOOM         :   dist_cam--;
+                                    if(dist_cam <1)dist_cam=1;
+                                    break;
 
-        case GAUCHE:
-            alpha_cam -=2;
-            if(alpha_cam < 0)alpha_cam=358;
-            break;
+            case GAUCHE         :   alpha_cam -=2;
+                                    if(alpha_cam < 0)alpha_cam=358;
+                                    break;
 
-        case DROITE:
-            alpha_cam +=2;
-            if(alpha_cam >358)alpha_cam=0;
-            break;
+            case DROITE         :   alpha_cam +=2;
+                                    if(alpha_cam >358)alpha_cam=0;
+                                    break;
 
-        case BAS:
-            thetha_cam -=2;
-            if(thetha_cam < 0)thetha_cam=360;
-            break;
+            case BAS            :   thetha_cam -=2;
+                                    if(thetha_cam < 0)thetha_cam=360;
+                                    break;
 
-        case HAUT:
-            thetha_cam +=2;
-            if(thetha_cam >358)thetha_cam=0;
-            break;
-        case ARROW_DOWN:
-            cubeView.mooveCube(DOWN);
-            break;
-        case ARROW_UP:
-            cubeView.mooveCube(UP);
-            break;
-        case ARROW_RIGHT:
-            cubeView.mooveCube(RIGHT);
-            break;
-        case ARROW_LEFT:
-            cubeView.mooveCube(LEFT);
-            break;
+            case HAUT           :   thetha_cam +=2;
+                                    if(thetha_cam >358)thetha_cam=0;
+                                    break;
+
+            case ARROW_DOWN     :   cubeView.mooveCube(DOWN);
+                                    break;
+
+            case ARROW_UP       :   cubeView.mooveCube(UP);
+                                    break;
+
+            case ARROW_RIGHT    :   cubeView.mooveCube(RIGHT);
+                                    break;
+
+            case ARROW_LEFT     :   cubeView.mooveCube(LEFT);
+                                    break;
+
+            case DEBUT          :   alpha_cam = 90;
+                                    thetha_cam = 0;
+                                    break;
         }
         pos_cam_x = dist_cam * cos(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
         pos_cam_z = dist_cam * sin(alpha_cam*3.14/180) * cos(thetha_cam*3.14/180);
@@ -183,7 +181,6 @@ void display(void) {
     /* Selection / Initialisation de la matrice de transformation des objets */
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-
 
     /* Placement de la camera */
     gluLookAt(pos_cam_x, pos_cam_y, pos_cam_z, 0,0,0, 0,1,0);
@@ -214,52 +211,69 @@ void redimensionne(int largeur, int hauteur) {
 
 void clavier(unsigned char touche, int x, int y) {
 
-    switch (touche) {
-    case 27:  /* Les touches 'q' et Esc permettent de quitter le programme */
-        mesTouches.ajouteTouchePressee(ECHAP);
-        break;
-    case 'z':
-    case 'Z':
-        mesTouches.ajouteTouchePressee(HAUT);
-        break;
-    case 's':
-    case 'S':
-        mesTouches.ajouteTouchePressee(BAS);
-        break;
-    case 'q':
-    case 'Q':
-        mesTouches.ajouteTouchePressee(GAUCHE);
-        break;
-    case 'd':
-    case 'D':
-        mesTouches.ajouteTouchePressee(DROITE);
-        break;
-    case 'a':
-    case 'A':
-        mesTouches.ajouteTouchePressee(ZOOM);
-        break;
-    case 'e':
-    case 'E':
-        mesTouches.ajouteTouchePressee(DEZOOM);
-        break;
+    switch (touche)
+    {
+        case 27 :   /* La touche Esc permet de quitter le programme */
+                    mesTouches.ajouteTouchePressee(ECHAP);
+                    break;
+        case 'z':
+        case 'Z':   mesTouches.ajouteTouchePressee(HAUT);
+                    break;
+        case 's':
+        case 'S':   mesTouches.ajouteTouchePressee(BAS);
+                    break;
+        case 'q':
+        case 'Q':   mesTouches.ajouteTouchePressee(GAUCHE);
+                    break;
+        case 'd':
+        case 'D':   mesTouches.ajouteTouchePressee(DROITE);
+                    break;
+        case 'a':
+        case 'A':   mesTouches.ajouteTouchePressee(ZOOM);
+                    break;
+        case 'e':
+        case 'E':   mesTouches.ajouteTouchePressee(DEZOOM);
+                    break;
     }
     glutPostRedisplay();
 }
 
 void numClavier(int key, int x, int y) {
-    switch (key) {
-    case 100:
-        mesTouches.ajouteTouchePressee(ARROW_LEFT);
-        break;
-    case 101:
-        mesTouches.ajouteTouchePressee(ARROW_UP);
-        break;
-    case 102:
-        mesTouches.ajouteTouchePressee(ARROW_RIGHT);
-        break;
-    case 103:
-        mesTouches.ajouteTouchePressee(ARROW_DOWN);
-        break;
+    switch (key)
+    {
+        case GLUT_KEY_F1        :   break;
+        case GLUT_KEY_F2        :   break;
+        case GLUT_KEY_F3        :   break;
+        case GLUT_KEY_F4        :   break;
+        case GLUT_KEY_F5        :   break;
+        case GLUT_KEY_F6        :   break;
+        case GLUT_KEY_F7        :   break;
+        case GLUT_KEY_F8        :   break;
+        case GLUT_KEY_F9        :   break;
+        case GLUT_KEY_F10       :   break;
+        case GLUT_KEY_F11       :   break;
+        case GLUT_KEY_F12       :   break;
+
+        case GLUT_KEY_LEFT      :   mesTouches.ajouteTouchePressee(ARROW_LEFT);
+                                    break;
+
+        case GLUT_KEY_UP        :   mesTouches.ajouteTouchePressee(ARROW_UP);
+                                    break;
+
+        case GLUT_KEY_RIGHT     :   mesTouches.ajouteTouchePressee(ARROW_RIGHT);
+                                    break;
+
+        case GLUT_KEY_DOWN      :   mesTouches.ajouteTouchePressee(ARROW_DOWN);
+                                    break;
+
+        case GLUT_KEY_PAGE_UP   :   break;
+        case GLUT_KEY_PAGE_DOWN :   break;
+
+        case GLUT_KEY_HOME      :   mesTouches.ajouteTouchePressee(DEBUT);  //remet la camera en position initial
+                                    break;
+
+        case GLUT_KEY_END       :   break;
+        case GLUT_KEY_INSERT    :   break;
     }
     glutPostRedisplay();
 }
