@@ -19,7 +19,7 @@ enum Color {WHITE, GREEN, RED, BLUE, YELLOW, ORANGE};
 enum Axe {X, Y, Z};
 enum Sens {UP, DOWN, RIGHT, LEFT};
 
-
+#define NBVOISINS 5
 
 class CubeView
 {
@@ -29,17 +29,14 @@ class CubeView
 
     // à appeler dans la boucle d'animation (mise à jour + affichage)
     void update(void);
-
-    //////////////////////////
-    // fonctions animations //
-    //////////////////////////
-
     // rotations du cube (en entier)
     void mooveCube(Sens s);
-    void rotation(Axe axe, bool sensHoraire = true);
+
 
     //
     static void setGlutColor(Color c);
+
+
 
   private:
     Color currentFace;
@@ -49,11 +46,17 @@ class CubeView
     Cube* cube;
     void draw(void);
     bool isMooving = false;
-    int angle;
+
     static int speed;
+
     void setFaceRepere(Color f);
     void setPerspective();
-    void oldRotation(Sens s);
+
+    void rotation(Axe axe, bool sensHoraire = true);
+    void majCurrentFace(Sens sens);
+
+    // left, up, right, bottom, back
+    Color neighbors[5];
 };
 
 #endif // CUBEVIEW_H

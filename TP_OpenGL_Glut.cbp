@@ -44,11 +44,13 @@
 		<Unit filename="fonction.h" />
 		<Unit filename="include/Cube.h" />
 		<Unit filename="include/CubeView.h" />
+		<Unit filename="include/EchangeurClavier.h" />
 		<Unit filename="include/GUI.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="premier_prog.cpp" />
 		<Unit filename="src/Cube.cpp" />
 		<Unit filename="src/CubeView.cpp" />
+		<Unit filename="src/EchangeurClavier.cpp" />
 		<Unit filename="src/GUI.cpp" />
 		<Extensions>
 			<code_completion />

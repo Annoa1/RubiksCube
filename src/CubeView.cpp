@@ -1,11 +1,42 @@
 #include "CubeView.h"
 
+
+// Pour le test..
+string color2String(Color c) {
+    string s;
+    switch (c) {
+      case WHITE:
+          s="white";
+          break;
+      case RED:
+          s="red";
+          break;
+      case BLUE:
+          s="blue";
+          break;
+      case GREEN:
+          s="green";
+          break;
+      case YELLOW:
+          s="yellow";
+          break;
+      case ORANGE:
+          s="orange";
+    }
+    return s;
+}
+
 CubeView::CubeView(Cube* c) {
     cube = c;
     currentFace = WHITE;
     currentXAngle = 0;
     currentYAngle = 0;
     currentZAngle = 0;
+    neighbors[0] = GREEN;
+    neighbors[1] = ORANGE;
+    neighbors[2] = BLUE;
+    neighbors[3] = RED;
+    neighbors[4] = YELLOW;
 }
 
 CubeView::~CubeView() {
@@ -73,6 +104,7 @@ void CubeView::setGlutColor(Color c) {
 
 void CubeView::rotation(Axe axe, bool sensHoraire) {
     int angle = (sensHoraire)? -90:90;
+
     switch (axe) {
     case X:
         cout << "rotation x de "<<angle<<endl;
@@ -91,43 +123,98 @@ void CubeView::rotation(Axe axe, bool sensHoraire) {
     }
 }
 
-// Je sais pas pourquoi ça marche \o/
-void CubeView::mooveCube(Sens s) {
-    cout<<"====================="<<endl;
-    cout<<"currentXAngle "<<currentXAngle<<endl;
-    cout<<"currentYAngle "<<currentYAngle<<endl;
-    cout<<"currentZAngle "<<currentZAngle<<endl;
+
+void CubeView::mooveCube(Sens sens) {
+
+    bool test = false;
 
     Axe axe;
     bool sensHoraire;
 
-    switch (s) {
-      case RIGHT: axe=Y; sensHoraire=false;  break;
-      case LEFT:  axe=Y; sensHoraire=true; break;
-      case UP:    axe=X; sensHoraire=true;  break;
-      case DOWN:  axe=X; sensHoraire=false; break;
+    switch (sens) {
+    case RIGHT:
+        axe=Y;
+        sensHoraire=false;
+        break;
+    case LEFT:
+        axe=Y;
+        sensHoraire=true;
+        break;
+    case UP:
+        axe=X;
+        sensHoraire=true;
+        break;
+    case DOWN:
+        axe=X;
+        sensHoraire=false;
+        break;
     }
+
 
     if (axe==Y) {
-      if (currentXAngle<0)
-        sensHoraire = !(sensHoraire);
-      if (currentXAngle%180 != 0)
-        axe = Z;
-      if (currentXAngle==180)
-        sensHoraire = !(sensHoraire);
+        if (currentXAngle<0) {
+            sensHoraire = !(sensHoraire);
+        }
+        if (currentXAngle%180 != 0) {
+            axe = Z;
+        }
+
+        if (currentXAngle==180) {
+            sensHoraire = !(sensHoraire);
+        }
+
     }
 
-    if (axe==X) {
-      if (currentYAngle<0)
-        sensHoraire = !(sensHoraire);
-      if (currentYAngle%180 != 0)
-        axe = Z;
-      if (currentYAngle==270)
-        sensHoraire = !(sensHoraire);
+    else if (axe==X) {
+        if (currentYAngle<0) {
+            sensHoraire = !(sensHoraire);
+        }
+        if (currentYAngle%180 != 0) {
+            axe = Z;
+        }
+        if (currentYAngle==270) {
+            sensHoraire = !(sensHoraire);
+        }
+
     }
 
     rotation(axe, sensHoraire);
+    majCurrentFace(sens);
 
+    cout<<"currentXAngle "<<currentXAngle<<endl;
+    cout<<"currentYAngle "<<currentYAngle<<endl;
+    cout<<"currentZAngle "<<currentZAngle<<endl;
+    cout<<"currentFace "<<color2String(currentFace)<<endl;
+}
+
+void CubeView::majCurrentFace(Sens sens) {
+    Color tmp = currentFace;
+    switch (sens) {
+        case DOWN:
+            currentFace = neighbors[1];
+            neighbors[1] = neighbors[4];
+            neighbors[4] = neighbors[3];
+            neighbors[3] = tmp;
+            break;
+        case UP:
+            currentFace = neighbors[3];
+            neighbors[3] = neighbors[4];
+            neighbors[4] = neighbors[1];
+            neighbors[1] = tmp;
+            break;
+        case RIGHT:
+            currentFace = neighbors[0];
+            neighbors[0] = neighbors[4];
+            neighbors[4] = neighbors[2];
+            neighbors[2] = tmp;
+            break;
+        case LEFT:
+            currentFace = neighbors[2];
+            neighbors[2] = neighbors[4];
+            neighbors[4] = neighbors[0];
+            neighbors[0] = tmp;
+            break;
+    }
 }
 
 /**
