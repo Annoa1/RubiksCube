@@ -1,3 +1,10 @@
+/*!
+ * \file src\GUI.cpp
+ * \brief Gestion de la bibliotheque GUI
+ * \author Groupe 8
+ * \version 1.0
+ */
+
 #include "GUI.h"
 
 GUI::GUI()

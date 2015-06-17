@@ -1,5 +1,12 @@
-#include "CubeView.h"
+/*!
+ * \file src\CubeView.cpp
+ * \brief Visualisation du cube
+ * \author Groupe 8
+ * \version 1.0
+ */
 
+
+#include "CubeView.h"
 
 // Pour le test..
 string color2String(Color c) {

@@ -1,3 +1,10 @@
+/*!
+ * \file src\EchangeurClavier.cpp
+ * \brief Gestion des evenements clavier
+ * \author Groupe 8
+ * \version 1.0
+ */
+
 #include "EchangeurClavier.h"
 
 EchangeurClavier::EchangeurClavier()

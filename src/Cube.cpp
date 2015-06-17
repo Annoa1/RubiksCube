@@ -1,3 +1,11 @@
+/*!
+ * \file src\Cube.cpp
+ * \brief Fonctions associees a la classe Cube
+ * \author Groupe 8
+ * \version 1.0
+ */
+
+
 #include "Cube.h"
 
 Cube::Cube()
