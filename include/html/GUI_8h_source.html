@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Rubik&#39;s cube:  Fichier source de GUI.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Rubik&#39;s cube
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">GUI.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="GUI_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GUI_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GUI_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="CubeView_8h.html">CubeView.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;GL/glut.h&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classGUI.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGUI.html">GUI</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classGUI.html#a8cbb3140b7d3c9d8e942d6ce6b60a0e8">GUI</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classGUI.html#a9d4a79ac057b6731349c16b9261df173">~GUI</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGUI.html#afa89c66448e97601298960a2874e7825">majCurrentFace</a>(<a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a> sens);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGUI.html#a79b2ce6cea57d0d0eb092cd74ca7e4a9">setCamera</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> currentFace;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> neighbors[5];</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    GLdouble cam_x, cam_y, cam_z;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif // GUI_H</span></div>
+<div class="ttc" id="CubeView_8h_html"><div class="ttname"><a href="CubeView_8h.html">CubeView.h</a></div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">Enumeration des couleurs des faces. </div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="classGUI_html"><div class="ttname"><a href="classGUI.html">GUI</a></div><div class="ttdef"><b>Definition:</b> GUI.h:7</div></div>
+<div class="ttc" id="classGUI_html_a79b2ce6cea57d0d0eb092cd74ca7e4a9"><div class="ttname"><a href="classGUI.html#a79b2ce6cea57d0d0eb092cd74ca7e4a9">GUI::setCamera</a></div><div class="ttdeci">void setCamera(void)</div></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a></div><div class="ttdeci">Sens</div><div class="ttdoc">Enumeration des sens. </div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="classGUI_html_a9d4a79ac057b6731349c16b9261df173"><div class="ttname"><a href="classGUI.html#a9d4a79ac057b6731349c16b9261df173">GUI::~GUI</a></div><div class="ttdeci">virtual ~GUI()</div></div>
+<div class="ttc" id="classGUI_html_afa89c66448e97601298960a2874e7825"><div class="ttname"><a href="classGUI.html#afa89c66448e97601298960a2874e7825">GUI::majCurrentFace</a></div><div class="ttdeci">void majCurrentFace(Sens sens)</div></div>
+<div class="ttc" id="classGUI_html_a8cbb3140b7d3c9d8e942d6ce6b60a0e8"><div class="ttname"><a href="classGUI.html#a8cbb3140b7d3c9d8e942d6ce6b60a0e8">GUI::GUI</a></div><div class="ttdeci">GUI()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 17 Juin 2015 16:21:52 pour Rubik&#39;s cube par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

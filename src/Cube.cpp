@@ -5,9 +5,13 @@
  * \version 1.0
  */
 
-
 #include "Cube.h"
 
+/*!
+ *  \brief Constructeur Cube
+ *
+ *  Initialise les six faces du cube
+ */
 Cube::Cube()
 {
     //initialisation du Cube
@@ -21,6 +25,10 @@ Cube::Cube()
     //ctor
 }
 
+//! Fonction afficher de la classe Cube.
+    /*!
+      Affiche la face de devant puis la gauche et droite et termine par les faces haut et bas.
+    */
 void Cube::afficher() {
 
     //affichage de la face 1
@@ -84,9 +92,14 @@ void Cube::afficher() {
     cout << "-\t-\t-\t-\t-\t-\t-\t-\t-\t" << endl;
 }
 
+
+//! Fonction rotation de la classe Cube.
+/*!
+      Tourne une face indiquee par son numero dans le sens horaire (1) ou sens antihoraire (autre)
+*/
 void Cube::rotation(int numface, int sens) {
     int faceTemp[NBCOL][NBCOL];
-    //on retourne toutes les case de la face
+    //on retourne toutes les cases de la face
     if(sens == 1) {
         for(int i=0; i<NBCOL; i++) {
             for(int j=0; j<NBCOL; j++) {

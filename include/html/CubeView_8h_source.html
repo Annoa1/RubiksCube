@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Rubik&#39;s cube:  Fichier source de CubeView.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Rubik&#39;s cube
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CubeView.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="CubeView_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef CUBEVIEW_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define CUBEVIEW_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Cube_8h.html">Cube.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;GL/glut.h&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ead1c3ef2d2">   18</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> {<a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9c3c0e7e50">WHITE</a>, <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca">GREEN</a>, <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88">RED</a>, <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d79057a1b79">BLUE</a>, <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ead1c3ef2d2">YELLOW</a>, <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1cace9ee4c1a6b777940c7f3a766a9a88d4">ORANGE</a>};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573aa70478ce277ffc322f8e1e3418e07355">   24</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573">Axe</a> {<a class="code" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573a58833a3110c570fb05130d40c365d1e4">X</a>, <a class="code" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573a5596231eabd6cf29050967d5ac83ad84">Y</a>, <a class="code" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573aa70478ce277ffc322f8e1e3418e07355">Z</a>};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15aba595d8bca8bc5e67c37c0a9d89becfa">   30</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a> {<a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15aba595d8bca8bc5e67c37c0a9d89becfa">UP</a>, <a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a>, <a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15aec8379af7490bb9eaaf579cf17876f38">RIGHT</a>, <a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15adb45120aafd37a973140edee24708065">LEFT</a>};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="CubeView_8h.html#ad73160dd9fca2a93795ca84c49efc4d2">   32</a></span>&#160;<span class="preprocessor">#define NBVOISINS 5</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classCubeView.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCubeView.html">CubeView</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classCubeView.html#af0ad3478ebbccf3e24470a36e6340056">CubeView</a>(<a class="code" href="classCube.html">Cube</a>* cube);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classCubeView.html#aabe4ec9d216a37a9806babf20821443d">~CubeView</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// � appeler dans la boucle d&#39;animation (mise � jour + affichage)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCubeView.html#a100e58202c3413fd3b2f2ee8541cc1bf">update</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="comment">// rotations du cube (en entier)</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classCubeView.html#a372aebbea085bcb1b7068b4f9f075273">mooveCube</a>(<a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a> s);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classCubeView.html#a6a3039eac5f892ce45308618f94a9a8b">setGlutColor</a>(<a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> c);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> currentFace;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">int</span> currentXAngle;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> currentYAngle;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">int</span> currentZAngle;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classCube.html">Cube</a>* cube;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> draw(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> isMooving = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> speed;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">bool</span> areAngles(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> z);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> setFaceRepere(<a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> f);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">void</span> setPerspective();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> rotation(<a class="code" href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573">Axe</a> axe, <span class="keywordtype">bool</span> sensHoraire = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> majCurrentFace(<a class="code" href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a> sens);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// left, up, right, bottom, back</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a> neighbors[5];</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;};</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif // CUBEVIEW_H</span></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15aec8379af7490bb9eaaf579cf17876f38"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15aec8379af7490bb9eaaf579cf17876f38">RIGHT</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d79057a1b79"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1ca35d6719cb4d7577c031b3d79057a1b79">BLUE</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15adb45120aafd37a973140edee24708065"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15adb45120aafd37a973140edee24708065">LEFT</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1cace9ee4c1a6b777940c7f3a766a9a88d4"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1cace9ee4c1a6b777940c7f3a766a9a88d4">ORANGE</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="CubeView_8h_html_a8b7a26aefee5b4a459d8a50eb8abf573aa70478ce277ffc322f8e1e3418e07355"><div class="ttname"><a href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573aa70478ce277ffc322f8e1e3418e07355">Z</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:24</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1caa60bd322f93178d68184e30e162571ca">GREEN</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="CubeView_8h_html_a8b7a26aefee5b4a459d8a50eb8abf573"><div class="ttname"><a href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573">Axe</a></div><div class="ttdeci">Axe</div><div class="ttdoc">Enumeration des axes. </div><div class="ttdef"><b>Definition:</b> CubeView.h:24</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1c"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1c">Color</a></div><div class="ttdeci">Color</div><div class="ttdoc">Enumeration des couleurs des faces. </div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9c3c0e7e50"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1ca283fc479650da98250635b9c3c0e7e50">WHITE</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="Cube_8h_html"><div class="ttname"><a href="Cube_8h.html">Cube.h</a></div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ead1c3ef2d2"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1cae735a848bf82163a19236ead1c3ef2d2">YELLOW</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="classCubeView_html_a100e58202c3413fd3b2f2ee8541cc1bf"><div class="ttname"><a href="classCubeView.html#a100e58202c3413fd3b2f2ee8541cc1bf">CubeView::update</a></div><div class="ttdeci">void update(void)</div></div>
+<div class="ttc" id="classCube_html"><div class="ttname"><a href="classCube.html">Cube</a></div><div class="ttdoc">classe representant le Cube </div><div class="ttdef"><b>Definition:</b> Cube.h:16</div></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15">Sens</a></div><div class="ttdeci">Sens</div><div class="ttdoc">Enumeration des sens. </div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="classCubeView_html_aabe4ec9d216a37a9806babf20821443d"><div class="ttname"><a href="classCubeView.html#aabe4ec9d216a37a9806babf20821443d">CubeView::~CubeView</a></div><div class="ttdeci">virtual ~CubeView()</div><div class="ttdoc">Destructeur. </div></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15aba595d8bca8bc5e67c37c0a9d89becfa"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15aba595d8bca8bc5e67c37c0a9d89becfa">UP</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="CubeView_8h_html_a8b7a26aefee5b4a459d8a50eb8abf573a58833a3110c570fb05130d40c365d1e4"><div class="ttname"><a href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573a58833a3110c570fb05130d40c365d1e4">X</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:24</div></div>
+<div class="ttc" id="CubeView_8h_html_a8b7a26aefee5b4a459d8a50eb8abf573a5596231eabd6cf29050967d5ac83ad84"><div class="ttname"><a href="CubeView_8h.html#a8b7a26aefee5b4a459d8a50eb8abf573a5596231eabd6cf29050967d5ac83ad84">Y</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:24</div></div>
+<div class="ttc" id="classCubeView_html"><div class="ttname"><a href="classCubeView.html">CubeView</a></div><div class="ttdoc">Gere la visualisation d&#39;un Cube. </div><div class="ttdef"><b>Definition:</b> CubeView.h:39</div></div>
+<div class="ttc" id="CubeView_8h_html_a670da3ec6adfbba87f39752da3c76f15a9b0b4a95b99523966e0e34ffdadac9da"><div class="ttname"><a href="CubeView_8h.html#a670da3ec6adfbba87f39752da3c76f15a9b0b4a95b99523966e0e34ffdadac9da">DOWN</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:30</div></div>
+<div class="ttc" id="CubeView_8h_html_ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88"><div class="ttname"><a href="CubeView_8h.html#ab87bacfdad76e61b9412d7124be44c1caf80f9a890089d211842d59625e561f88">RED</a></div><div class="ttdef"><b>Definition:</b> CubeView.h:18</div></div>
+<div class="ttc" id="classCubeView_html_a6a3039eac5f892ce45308618f94a9a8b"><div class="ttname"><a href="classCubeView.html#a6a3039eac5f892ce45308618f94a9a8b">CubeView::setGlutColor</a></div><div class="ttdeci">static void setGlutColor(Color c)</div></div>
+<div class="ttc" id="classCubeView_html_af0ad3478ebbccf3e24470a36e6340056"><div class="ttname"><a href="classCubeView.html#af0ad3478ebbccf3e24470a36e6340056">CubeView::CubeView</a></div><div class="ttdeci">CubeView(Cube *cube)</div><div class="ttdoc">Constructeur. </div></div>
+<div class="ttc" id="classCubeView_html_a372aebbea085bcb1b7068b4f9f075273"><div class="ttname"><a href="classCubeView.html#a372aebbea085bcb1b7068b4f9f075273">CubeView::mooveCube</a></div><div class="ttdeci">void mooveCube(Sens s)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 17 Juin 2015 16:21:52 pour Rubik&#39;s cube par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

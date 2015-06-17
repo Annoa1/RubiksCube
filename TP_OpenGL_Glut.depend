@@ -102,7 +102,14 @@
 
 1434036879 source:d:\c\rubikscube\main.cpp
 
-1434035585 source:c:\users\etienne\desktop\rubikscube\main.cpp
+1434548488 source:c:\users\etienne\desktop\rubikscube\main.cpp
+	<stdlib.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"Cube.h"
+	"CubeView.h"
+	"EchangeurClavier.h"
 
 1433951110 gin/master
 	<stdlib.h>
@@ -128,10 +135,14 @@
 	<CubeView.h>
 	<iostream>
 
-1434035585 c:\users\etienne\desktop\rubikscube\include\gl\glut.h
+1434548488 c:\users\etienne\desktop\rubikscube\include\gl\glut.h
 	"freeglut_std.h"
 
-1434035585 c:\users\etienne\desktop\rubikscube\include\gl\freeglut_std.h
+1434548488 c:\users\etienne\desktop\rubikscube\include\gl\freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
 
 1066743714 d:\c\rubikscube\include\gl\glut.h
 	"freeglut_std.h"
@@ -144,24 +155,27 @@
 
 1434116900 
 
-1434035585 c:\users\etienne\desktop\rubikscube\include\cube.h
+1434550957 c:\users\etienne\desktop\rubikscube\include\cube.h
 	<iostream>
 
-1434116012 c:\users\etienne\desktop\rubikscube\include\cubeview.h
+1434552493 c:\users\etienne\desktop\rubikscube\include\cubeview.h
 	<Cube.h>
+	<GL/glut.h>
 
-1434035585 source:c:\users\etienne\desktop\rubikscube\premier_prog.cpp
+1434548488 source:c:\users\etienne\desktop\rubikscube\premier_prog.cpp
 
 1434035585 source:c:\users\etienne\desktop\rubikscube\src\cube.cpp
 	"Cube.h"
 
-1434035585 source:c:\users\etienne\desktop\rubikscube\src\cubeview.cpp
+1434548918 source:c:\users\etienne\desktop\rubikscube\src\cubeview.cpp
 	"CubeView.h"
 
-1434035585 source:c:\users\etienne\desktop\rubikscube\src\gui.cpp
+1434548918 source:c:\users\etienne\desktop\rubikscube\src\gui.cpp
 	"GUI.h"
 
-1434035585 c:\users\etienne\desktop\rubikscube\include\gui.h
+1434548488 c:\users\etienne\desktop\rubikscube\include\gui.h
+	<CubeView.h>
+	<GL/glut.h>
 
 1434115836 d:\c\rubikscube\include\cubeview.h
 
@@ -211,4 +225,9 @@
 	<math.h>
 	<Cube.h>
 	<CubeView.h>
+
+1434555903 c:\users\etienne\desktop\rubikscube\include\echangeurclavier.h
+
+1434548918 source:c:\users\etienne\desktop\rubikscube\src\echangeurclavier.cpp
+	"EchangeurClavier.h"
 
